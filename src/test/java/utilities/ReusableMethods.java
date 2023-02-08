@@ -2,7 +2,7 @@ package utilities;
 
 public class ReusableMethods {
 
-    public void bekle(int saniye) {
+    static public void bekle(int saniye) {
 
         try {
             Thread.sleep(saniye*1000);
