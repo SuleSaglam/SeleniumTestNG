@@ -8,10 +8,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class CrossDriver {
 
-    private CrossDriver(){
-        // Singleton pattern konsepti ile
-        // Driver class'indan obje olusturmayi engellemek icin bu cons.'i olusturduk
-    }
+    private CrossDriver(){}
 
     static WebDriver driver;
 
@@ -19,8 +16,7 @@ public class CrossDriver {
 
         browser = browser == null ? ConfigReader.getProperty("browser") : browser;
 
-        if(driver==null) {// method ilk cagrildiginda driver degeri atanmamis oldugundan deger ata
-            // sonraki calistirmalarda degeri atanmis oldugundan 18.satir calismayacak
+        if(driver==null) {
 
             switch (browser){
 
@@ -51,5 +47,4 @@ public class CrossDriver {
             driver=null;
         }
     }
-
 }
