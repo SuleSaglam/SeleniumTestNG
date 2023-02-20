@@ -14,6 +14,7 @@ public class AutomationExercisePage {
     public AutomationExercisePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+    Actions actions = new Actions(Driver.getDriver());
 
     @FindBy(xpath = "//*[text()='Category']")
     public WebElement textHomeAutomationExercise;
@@ -27,6 +28,33 @@ public class AutomationExercisePage {
     @FindBy(xpath = "(//*[text()='Full-Fledged practice website for Automation Engineers'])[3]")
     public WebElement textfullFledged;
 
+    @FindBy(xpath = "//*[text()='recommended items']")
+    public WebElement textRecommendedItems;
+
+    @FindBy(xpath = "(//*[text()='Add to cart'])[74]")
+    public WebElement linkRecommendedItemsAddToCart;
+
+    @FindBy(xpath = "//*[text()='View Cart']")
+    public WebElement linkViewCart;
+
+    @FindBy(xpath = "//*[text()='Proceed To Checkout']")
+    public WebElement linkProceedToCheckout;
+
+    public void verificationCartPage() {
+        linkRecommendedItemsAddToCart.click();
+        ReusableMethods.bekle(2);
+        linkViewCart.click();
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(linkProceedToCheckout.isDisplayed());
+    }
+
+    public void verificationRemommendedItems() {
+        actions.scrollToElement(linkRecommendedItemsAddToCart).perform();
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(textRecommendedItems.isDisplayed());
+        ReusableMethods.bekle(2);
+    }
+
     public void verificationHomePage() {
         Assert.assertTrue(textHomeAutomationExercise.isDisplayed());
         ReusableMethods.bekle(2);
@@ -35,7 +63,6 @@ public class AutomationExercisePage {
     }
 
     public void verificationSubscription(){
-        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.END).perform();
         ReusableMethods.bekle(2);
     }
