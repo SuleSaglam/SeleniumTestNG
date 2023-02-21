@@ -34,14 +34,11 @@ public class QualityDemyPage {
 
     public void forgotPasswordPage() {
         Driver.getDriver().get(ConfigReader.getProperty("qualityDemyUrl"));
-        ReusableMethods.bekle(3);
         linkLogIn.click();
         if (cookieKabul.isDisplayed()) {
             cookieKabul.click();
-            ReusableMethods.bekle(2);
         }
         linkForgotPassword.click();
-        ReusableMethods.bekle(2);
     }
 
     public void verificationForgotPassword() {
@@ -53,11 +50,8 @@ public class QualityDemyPage {
 
     public void validEmail() {
         boxForgotPasswordEmail.click();
-        ReusableMethods.bekle(2);
         boxForgotPasswordEmail.sendKeys(ConfigReader.getProperty("qualityDemyValidEmail"));
-        ReusableMethods.bekle(2);
         linkSendRequest.click();
-        ReusableMethods.bekle(2);
         Assert.assertTrue(textCheckYour.isDisplayed());
     }
 
@@ -66,11 +60,8 @@ public class QualityDemyPage {
 
     public void invalidEmail() {
         boxForgotPasswordEmail.click();
-        ReusableMethods.bekle(2);
         boxForgotPasswordEmail.sendKeys(ConfigReader.getProperty("qualityDemyInvalidEmail"));
-        ReusableMethods.bekle(2);
         linkSendRequest.click();
-        ReusableMethods.bekle(2);
         Assert.assertTrue(textUserNotFound.isDisplayed());
     }
 }

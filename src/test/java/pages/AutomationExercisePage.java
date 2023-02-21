@@ -42,34 +42,26 @@ public class AutomationExercisePage {
 
     public void verificationCartPage() {
         linkRecommendedItemsAddToCart.click();
-        ReusableMethods.bekle(2);
         linkViewCart.click();
-        ReusableMethods.bekle(2);
         Assert.assertTrue(linkProceedToCheckout.isDisplayed());
     }
 
     public void verificationRemommendedItems() {
         actions.scrollToElement(linkRecommendedItemsAddToCart).perform();
-        ReusableMethods.bekle(2);
         Assert.assertTrue(textRecommendedItems.isDisplayed());
-        ReusableMethods.bekle(2);
     }
 
     public void verificationHomePage() {
         Assert.assertTrue(textHomeAutomationExercise.isDisplayed());
-        ReusableMethods.bekle(2);
         Assert.assertTrue(textSubscription.isDisplayed());
-        ReusableMethods.bekle(2);
     }
 
     public void verificationSubscription(){
         actions.sendKeys(Keys.END).perform();
-        ReusableMethods.bekle(2);
     }
 
     public void verificationFullFledged() {
         scrollUp.click();
-        ReusableMethods.bekle(2);
         Assert.assertTrue(textfullFledged.isDisplayed());
     }
 
